@@ -1,5 +1,10 @@
 # PincodeFinderV_0.0.1
-It was Cross-orgin extension or most Function was Chrome Extensions it was find the indian pincode giving the query of PinCode or Area 
+It was Cross-orgin extension or most Function was Chrome Extensions it was find the indian pincode giving the query of PinCode or Area
+### First Error - Not Get Data
+Error That was `indiapincode.json` was not Have Data set of pincode in json file to solve Download json file from [GitHub_User](https://github.com/mithunsasidharan/India-Pincode-Lookup/blob/master/pincodes.json) and places the file in directory in same name *indiapincode*
+![](https://snipboard.io/8K6mrt.jpg) 
+This process Solved the Issue in Extension And Conutinue Use This extension in pc or others
+
 ### popup.js
 This file make major action in project it carries max 150 lines detail Explain in coming Sections .I think Code is Base of Binary Search I think .It was Chrome Extension  Extension .I tested in Edge,Chrome  Gettting Good Results 
 ##### Working and functions
@@ -72,6 +77,9 @@ function Areafinder(book,state,key,Displaycontent){
 }
 ```
 This Code is `popup.js` define Function happen in template let Function of four Parameter book consider as Data get from the `indianpincodes.json` State Default *TAMIL NADU* Change when Call Are Add Selection Function in template call the value later Add the Code in `PincodeFinderV_0.0.1` it Function in array seraching by id or index number
+### Display Area Results in Template:
+this was Same Format Display the Content in Areafinder Query fields Work with the pretty cool Extension  and Make Your Work Easy use and get develops Your work...
+![](https://snipboard.io/1NKwPV.jpg)
 ```javascript
     let givenstate = state;
 	let finderkey = key.toLowerCase()
@@ -117,6 +125,12 @@ if (resultlist.length > 0){
 }
 ```
 This Code is Display in html Page `popup.html` this was the major function code in `Pincodefinder` in that One Loop Requried For Collect the data to particular String
+### Display Pincode Results in Template:
+format of Display Content in Card in Boostrap 5 title postion count of get Results of indiuvals results pincode that you are serached *manidorty to give Full Pincode number in query input* You Entered Invalid input Occur Error Message See the Example Photo 
+![](https://snipboard.io/vN1gAQ.jpg)
+##### Errors message:
+When givinig Wrong input Display this Message in Extension 
+![](https://snipboard.io/yhODfM.jpg)
 
 Download Add Your Code and feel happy ..
 
