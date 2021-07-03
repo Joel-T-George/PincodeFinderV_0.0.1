@@ -1,9 +1,5 @@
 # PincodeFinderV_0.0.1
 It was Cross-orgin extension or most Function was Chrome Extensions it was find the indian pincode giving the query of PinCode or Area
-### First Error - Not Get Data
-Error That was `indiapincode.json` was not Have Data set of pincode in json file to solve Download json file from [GitHub_User](https://github.com/mithunsasidharan/India-Pincode-Lookup/blob/master/pincodes.json) and places the file in directory in same name *indiapincode*
-![](https://snipboard.io/8K6mrt.jpg) 
-This process Solved the Issue in Extension And Conutinue Use This extension in pc or others
 
 ### popup.js
 This file make major action in project it carries max 150 lines detail Explain in coming Sections .I think Code is Base of Binary Search I think .It was Chrome Extension  Extension .I tested in Edge,Chrome  Gettting Good Results 
@@ -39,7 +35,7 @@ async function getData() {
     return null;
 }
 ```
-This code is `popup.js` .it is the async Function Get Compete Data From The extenal file `indiapincodes.json` default data is just a Get information in the link [indiapincode.json](https://github.com/mithunsasidharan/India-Pincode-Lookup/blob/master/pincodes.json) Downlod and keep in Same Directory Name as *indiapincodes* Some Time not Get data let Execute Template is Catch error
+This code is `popup.js` .it is the async Function Get Compete Data From The extenal file `indiapincodes.json` .I get Data from the Github User=> [indiapincode.json](https://github.com/mithunsasidharan/India-Pincode-Lookup/blob/master/pincodes.json) 
 
 ```javascript
 function Areafinder(book,state,key,Displaycontent){
