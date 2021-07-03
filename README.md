@@ -127,6 +127,15 @@ format of Display Content in Card in Boostrap 5 title postion count of get Resul
 ##### Errors message:
 When givinig Wrong input Display this Message in Extension 
 ![](https://snipboard.io/yhODfM.jpg)
+### Notification and ContextMenus Action In Extension:
+This Action Happen When Selection of text in Web page And RightClick get the This Option in List and Click That You Get pretty Information in Notification to Get Relavant answer Please Serach 50% Coorect Spelling.. and Option Page get Explains
+![](https://snipboard.io/e78yJA.jpg)
+### Notifications of Query
+it was with Query of pincode Get relavant Answer There producing data in two type single message and list of message in that 5 result was get in notification for more serach in title bar icon click(popup)
+![](https://snipboard.io/qAu46e.jpg)
+#### Error Qccur in notification message
+When User Select invald or not found Data show this this like only
+![](https://snipboard.io/XoRE7V.jpg)
 
 Download Add Your Code and feel happy ..
 
