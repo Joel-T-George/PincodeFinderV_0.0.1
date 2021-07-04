@@ -1,4 +1,3 @@
-console.log("BackGround")
 async function getData() {
     try {
         const response = await fetch('indiapincodes.json');
@@ -22,34 +21,33 @@ chrome.runtime.onInstalled.addListener(function(){
 	
 	})
 })
-
-chrome.contextMenus.onClicked.addListener(function(info, tab) {
-    if (info.menuItemId === "IndianPincodeFinder") { // here's where you'll need the ID
-        // do something
-		console.log(info.selectionText)
-		let numExp = /\d/g
-		let AlExp =/\D/
-		let key = info.selectionText
-
-		if(  numExp.test(key) && key.length == 6){
-			getData().then(data => Pincodefinder(data,info.selectionText) );
-		}
-		if( AlExp.test(key) ){
-			getData().then(data => Areafinder(data,info.selectionText) );	
+function StateArrayMaker(book,givenstate){
+	var listreslutsat=[]
+	for(var ids=0; ids < book.length; ids++){
+		if (book[ids].stateName == givenstate){
+			listreslutsat.push(ids);
+			continue;
+		}else{
+			continue;
 		}
 	}
-});
+	return  listreslutsat
+	
+}
 
 
-function Pincodefinder(book,key){
+function Pincodefinder(book,key,givenstate){
 	numkey = Number(key)
 	var id;
+	var listIdofState =StateArrayMaker(book,givenstate)
 	var listreslutId = []
 	var listofContent = []
-	for(id=0; id < book.length; id++){		
-		var bookpin = book[id].pincode
+	
+	for(id=0; id < listIdofState.length; id++){		
+		var bookpin = book[listIdofState[id]].pincode
 		if (bookpin == numkey){
-			listreslutId.push(id)
+
+			listreslutId.push(listIdofState[id])
 			continue;
 		}
 		else{
@@ -82,16 +80,18 @@ function Pincodefinder(book,key){
 	Display(listofContent,key)
 	
 }
-function Areafinder(book,key){
+function Areafinder(book,key,givenstate){
 	let listofContent=[]
+	
+	let listIdofState =StateArrayMaker(book,givenstate)
 
 	let finderkey = key.toLowerCase()
 	let resultlist=[]
-	for( var intial=0; intial < book.length; intial++){
-		let predifineword =book[intial].officeName
+	for( var intial=0; intial < listIdofState.length; intial++){
+		let predifineword =book[listIdofState[intial]].officeName
 		let area = predifineword.toLowerCase()
 		if (area.indexOf(finderkey)!= -1){
-			resultlist.push(intial)		
+			resultlist.push(listIdofState[intial])		
 		}
 	}
 	if(resultlist.length >= 5){
@@ -144,3 +144,23 @@ function Display(arr,key){
 	}
 	
 }
+
+chrome.contextMenus.onClicked.addListener(function(info, tab) {
+    if (info.menuItemId === "IndianPincodeFinder") { // here's where you'll need the ID
+        // do something
+		chrome.storage.local.get(["stateNameStores"], function(datas){
+		
+			
+			let numExp = /\d/g
+			let AlExp =/\D/
+			let key = info.selectionText
+
+			if(  numExp.test(key) && key.length == 6){
+				getData().then(data => Pincodefinder(data,info.selectionText,datas.stateNameStores) );
+			}
+			if( AlExp.test(key) ){
+				getData().then(data => Areafinder(data,info.selectionText,datas.stateNameStores) );	
+			}
+		})
+	}
+});
