@@ -155,6 +155,13 @@ $(document).ready(function(){
 			getData().then(data => Areafinder(data,datas.stateNameStores,areastring,"#contentdiv"));	
 		})
 	});
+document.querySelector('#optionstogo').addEventListener("click",function() {
+  if (chrome.runtime.openOptionsPage) {
+    chrome.runtime.openOptionsPage();
+  } else {
+    window.open(chrome.runtime.getURL('options.html'));
+  }
+});
 
 
 
