@@ -76,15 +76,26 @@ function contentDisplay(book,idarr,Displaycontent){
 	$(Displaycontent).html(contcontainer);
 }
 
-//getData().then(data => console.log(data));
-function Pincodefinder(book,key,displaycontent){
+
+function Pincodefinder(book,key,givenstate,displaycontent){
 	numkey = Number(key)
+	
 	var id;
 	var listreslut = []
-	for(id=0; id < book.length; id++){		
-		var bookpin = book[id].pincode
+	var listreslutsat =[]
+	for(var ids=0; ids < book.length; ids++){
+		if (book[ids].stateName == givenstate){
+			listreslutsat.push(ids);
+			continue;
+		}else{
+			continue;
+		}
+	}
+	
+	for(id=0; id < listreslutsat.length; id++){		
+		var bookpin = book[listreslutsat[id]].pincode
 		if (bookpin == numkey){
-			listreslut.push(id)
+			listreslut.push(listreslutsat[id])
 			
 			
 			continue;
@@ -132,15 +143,17 @@ $(document).ready(function(){
 
 	$("#pinserach").click(function() {
 		let pincode = document.getElementById("Pincode").value
-		getData().then(data => Pincodefinder(data,pincode,"#contentdiv"));
-			
+		chrome.storage.local.get(["stateNameStores"], function(datas){
+			getData().then(data => Pincodefinder(data,pincode,datas.stateNameStores,"#contentdiv"));
+		})	
 
 	});
 	$("#areaserach").click(function() {
+		
 		let areastring = document.getElementById("area").value
-		getData().then(data => Areafinder(data,"TAMIL NADU",areastring,"#contentdiv"));
-			
-
+		chrome.storage.local.get(["stateNameStores"], function(datas){	
+			getData().then(data => Areafinder(data,datas.stateNameStores,areastring,"#contentdiv"));	
+		})
 	});
 
 
