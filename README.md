@@ -3,7 +3,7 @@ It was Cross-orgin extension or most Function was Chrome Extensions it was find 
 
 
 ### popup.js
-This file make major action in project it carries max 150 lines detail Explain in coming Sections .I think Code is Base of Binary Search I think .It was Chrome Extension  Extension .I tested in Edge,Chrome  Gettting Good Results 
+This file make major action in project it carries max 150 lines detail Explain in coming Sections .I think Code is Base of linear Search I think .It was Chrome Extension  Extension .I tested in Edge,Chrome  Gettting Good Results 
 ##### Working and functions
 In the popup.js Five functions Have first for get Data from Json file it in Same Directory `indiapincodes.json` it have more pincode infomation 
 Second Function For Our Search engine for Areafinder it Care to parameters main json file data,Serach Query of State but Default `TAMIL NADU` Change For Your Wish for filter in purposes,Searching Key ,template display Variable
